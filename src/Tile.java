@@ -3,6 +3,7 @@ import java.awt.*;
 public class Tile {
     int x, y, scale;
     Color color;
+    int points = 1;
 
     public Tile(int i, int j, int scale, Color color){
         this.x = (i*scale)+5+(i*5) + Main.instance.padding/2;

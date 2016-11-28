@@ -1,20 +1,26 @@
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 
 public class Achievement {
+    String message;
+    Achievement next;
 
-    public Achievement(){
-
+    public Achievement(String message){
+        this.message = message;
     }
 
-    public void draw(Graphics graphics, String message){
-        System.out.println("Drawing achievement message");
+    public boolean equals(String message){
+        return this.message.equals(message);
+    }
+
+    public boolean equals(Achievement achievement){
+        return this.message.equals(achievement.message);
+    }
+
+    public void draw(Graphics graphics){
+        System.out.println("Drawing achievement message: " + message);
         graphics.setFont(new Font("Times New Roman", Font.BOLD, 20));
         FontMetrics f = graphics.getFontMetrics();
-        Rectangle2D r = f.getStringBounds(message, graphics);
-        graphics.setColor(Color.BLACK);
-        graphics.fillRoundRect((int) ((Main.instance.lengthX + Main.instance.padding) - (r.getWidth())), (int) ((Main.instance.lengthX + Main.instance.padding) - (r.getHeight())), (int) r.getWidth() * 2, (int) r.getHeight() * 2, 25, 25);
         graphics.setColor(Color.WHITE);
-        graphics.drawString(message, (int)(((Main.instance.lengthX + Main.instance.padding))-(r.getWidth())/2), (int)(((Main.instance.lengthX + Main.instance.padding))-(r.getHeight()/2)));
+        graphics.drawString(message, (((Main.instance.lengthX+Main.instance.padding)/2)-(f.stringWidth(message)/2)), 50);
     }
 }
