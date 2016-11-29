@@ -110,6 +110,11 @@ public class Main extends JPanel{
                         instance.achievementManager.addHit();
                         instance.t.interrupt();
                     }
+                    else {
+                        System.out.println("Did not hit the target!");
+                        audio.playMiss();
+                        instance.achievementManager.addMiss();
+                    }
                     int modScore = instance.tiles.hitModifier(e.getX(), e.getY());
                     if(modScore!=0){
                         System.out.println("Hit the modifier!");
@@ -118,11 +123,6 @@ public class Main extends JPanel{
                         instance.hit = true;
                         instance.achievementManager.addModifierHit();
                         instance.t.interrupt();
-                    }
-                    else {
-                        System.out.println("Did not hit the target!");
-                        audio.playMiss();
-                        instance.achievementManager.addMiss();
                     }
                     instance.repaint();
                 }
