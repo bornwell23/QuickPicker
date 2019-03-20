@@ -9,7 +9,7 @@ public class Settings {
     public static boolean fullScreen = false;
     public static int tileSize = 50;
     public static int boardSize = 5; //1->10, with 10 being largest, round down to ensure all tiles are represented properly. do math to ensure this
-    public static boolean soundOn = false;
+    public static boolean soundOn = true;
 
     public Settings() {
         instance = this;
